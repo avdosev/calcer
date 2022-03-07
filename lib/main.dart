@@ -14,14 +14,13 @@ void main() async {
   }
   await Window.setEffect(
     effect: WindowEffect.acrylic,
-    color: const Color(0xCC222222),
+    color: const Color(0x22222222),
   );
   if (Platform.isWindows) {
     doWhenWindowReady(() {
       appWindow
         ..minSize = Size(360, 640)
         ..size = Size(540, 720)
-        ..alignment = Alignment.center
         ..show();
     });
   }
@@ -31,7 +30,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       home: MyHomePage(),
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:calcer/common/expression.dart';
 import 'package:calcer/widgets/windows_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -146,6 +148,7 @@ class MyHomePage extends HookWidget {
     return TitlebarSafeArea(
       child: WindowsScaffold(
         child: Scaffold(
+          backgroundColor: Platform.isWindows ? Colors.transparent : null,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0.0,
@@ -155,7 +158,7 @@ class MyHomePage extends HookWidget {
                   onPressed: invertUseRadians,
                   child: Text(
                     useRadians.value ? 'RAD' : 'DEG',
-                    style: const TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Theme.of(context).hintColor),
                   ),
                 ),
               ],
