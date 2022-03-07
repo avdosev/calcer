@@ -7,17 +7,21 @@ import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class MyHomePage extends HookWidget {
-  // Statics
+  MyHomePage();
+
   TextSelection _currentSelection =
       TextSelection(baseOffset: 0, extentOffset: 0);
   final GlobalKey _textFieldKey = GlobalKey();
-  final textFieldPadding = EdgeInsets.only(right: 8.0);
-  static TextStyle textFieldTextStyle =
-      TextStyle(fontSize: 80.0, fontWeight: FontWeight.w300);
-  Color _numColor = Color.fromRGBO(48, 47, 63, .94);
-  Color _opColor = Color.fromRGBO(22, 21, 29, .93);
-  double? _fontSize = textFieldTextStyle.fontSize;
+  final textFieldPadding = const EdgeInsets.only(right: 8.0);
+  final textFieldTextStyle = const TextStyle(
+    fontSize: 80.0,
+    fontWeight: FontWeight.w300,
+  );
+  final _numColor = Color.fromRGBO(48, 47, 63, .94);
+  final _opColor = Color.fromRGBO(22, 21, 29, .93);
   static const _twoPageBreakpoint = 640;
+
+  double? _fontSize;
   // Controllers
   TextEditingController _controller = TextEditingController(text: '');
 

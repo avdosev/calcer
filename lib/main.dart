@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calcer',
       theme: ThemeData(
+        brightness: Platform.isWindows ? Brightness.dark : null,
         primarySwatch: Colors.blue,
+        hintColor: Platform.isWindows ? Colors.blueGrey : null,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
