@@ -49,8 +49,8 @@ class MyHomePage extends HookWidget {
                   flex: 3,
                   child: Column(
                     children: [
-                      CalculatorOutput(),
-                      Expanded(child: Container()),
+                      const CalculatorOutput(),
+                      const Spacer(),
                     ],
                   ),
                 ),
