@@ -1,7 +1,30 @@
+import 'dart:io';
+
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_acrylic/flutter_acrylic.dart';
+
 import 'pages/pages.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Window.initialize();
+  if (Platform.isWindows) {
+    await Window.hideWindowControls();
+  }
+  await Window.setEffect(
+    effect: WindowEffect.acrylic,
+    color: const Color(0xCC222222),
+  );
+  if (Platform.isWindows) {
+    doWhenWindowReady(() {
+      appWindow
+        ..minSize = Size(360, 640)
+        ..size = Size(540, 720)
+        ..alignment = Alignment.center
+        ..show();
+    });
+  }
   runApp(const MyApp());
 }
 
@@ -16,7 +39,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'kek'),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
+      ),
+      themeMode: ThemeMode.light,
+      home: MyHomePage(),
     );
   }
 }
